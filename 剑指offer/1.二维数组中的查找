@@ -1,0 +1,26 @@
+# -*- coding:utf-8 -*-
+# python 2.7
+# 可遍历，也可这样操作
+'''
+        # 1 2 3  
+        # 2 3 5         
+        # 9 6 7
+        从右上角开始找起，大于该值，不用看该行（i+=1），小于该值那么不在该列(j-=1)。
+'''
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        row_c = len(array)
+        col_c = len(array[0])
+        i = 0
+        j = len(array[0])-1
+        while i < row_c and j>=0:
+            # i 到最后一行, j 到第一列,遍历了所有
+            value = array[i][j]  # 取数
+            if value == target:
+                return True
+            if value > target:
+                j -= 1
+            else :
+                i += 1
+        return False
