@@ -1,0 +1,37 @@
+# -*- coding:utf-8 -*-
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#  建树节点
+#  前序的开始是中序的中间，进行切分
+class Solution:
+    # 返回构造的TreeNode根节点
+    def reConstructBinaryTree(self, pre, tin):
+        # 该函数是接受中序和前序（值）
+        # write code here
+        
+        # 终止条件
+        if not pre or not tin:
+            return None
+        # 边界条件，长度必须等
+        if len(pre) != len(tin):
+            return None
+        
+        root = pre[0]  # 根
+        rootNode = TreeNode(root) # 重建树节点
+        
+        # 做切分
+        pos = tin.index(root)
+        tinleft = tin[:pos] # 左子树中序
+        tinright = tin[pos+1:] # 右子树中序
+        preleft = pre[1:pos+1] # 左子树前序
+        preright = pre[pos+1:] # 右子树前序
+        leftNone=self.reConstructBinaryTree(preleft,tinleft) # 接上去
+        rightNone=self.reConstructBinaryTree(preright,tinright) # 接上去
+
+        rootNode.left = leftNone  
+        rootNode.right = rightNone
+        
+        return rootNode # 返回根节点
