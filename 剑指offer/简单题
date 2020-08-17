@@ -1,0 +1,35 @@
+# 太简单
+
+# 2.替换空格
+# -*- coding:utf-8 -*-
+class Solution:
+    # s 源字符串
+    def replaceSpace(self, s):
+        # write code here
+        a = []
+        for i in s:
+            if i == ' ':
+                a.append('%20')
+            else:
+                a.append(i)
+        return ''.join(a)
+        
+# 3.从尾到头打印链表
+ class Solution:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):   # listNode 链表头
+        # write code here
+        '''
+        res = []
+        pTmp = listNode
+        while pTmp:
+            res.insert(0,pTmp.val)  # 从头添加
+            pTmp = pTmp.next
+        return res
+        '''
+        res = []
+        pTmp = listNode
+        while pTmp:
+            res.append(pTmp.val)
+            pTmp = pTmp.next
+        return res[::-1]
