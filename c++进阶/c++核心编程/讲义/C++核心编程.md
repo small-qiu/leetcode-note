@@ -150,8 +150,8 @@ int main() {
 
 	int *p = func();
 
-	cout << *p << endl;
-	cout << *p << endl;
+	cout << *p << endl; //第一次可以打印正确的数字，是因为编译器做了保留
+	cout << *p << endl; //返回局部变量的地址
 
 	system("pause");
 
